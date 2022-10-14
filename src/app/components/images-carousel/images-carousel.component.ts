@@ -1,4 +1,11 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'images-carousel',
@@ -7,9 +14,16 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 })
 export class ImagesCarouselComponent implements OnChanges {
   @Input() images: string[] = [];
+  @ViewChild('imageContainer') imageContainer:
+    | ElementRef<HTMLDivElement>
+    | undefined;
   currentImage: number = 0;
+
   get pathTransformExp(): string {
-    return 'translateX(-' + 400 * this.currentImage + 'px)';
+    const imageContainerWidth = this.imageContainer
+      ? this.imageContainer.nativeElement.scrollWidth
+      : 400;
+    return 'translateX(-' + imageContainerWidth * this.currentImage + 'px)';
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -20,14 +34,20 @@ export class ImagesCarouselComponent implements OnChanges {
   setCurrentImage(value: number) {
     this.currentImage = value;
   }
+
   handleLeftButtonClick() {
     this.setCurrentImage(
       this.currentImage === 0 ? this.images.length - 1 : --this.currentImage
     );
   }
+
   handleRightButtonClick() {
     this.setCurrentImage(
       this.currentImage === this.images.length - 1 ? 0 : ++this.currentImage
     );
+  }
+
+  handleResize() {
+    this.setCurrentImage(0);
   }
 }

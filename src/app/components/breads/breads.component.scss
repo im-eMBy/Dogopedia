@@ -9,8 +9,9 @@
         overflow-y: auto;
         overflow-x: hidden;
         &::-webkit-scrollbar {
-            background: #a5a5a5;
+            background: #d0d0d088;
             width: 8px;
+            border-radius: 5px;
         }
         &::-webkit-scrollbar-thumb {
             background: #000000;
