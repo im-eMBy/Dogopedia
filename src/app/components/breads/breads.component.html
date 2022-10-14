@@ -1,0 +1,11 @@
+<div class="breads">
+  <buttons-list
+    [items]="breadsService.getBreads()"
+    (clickedItem)="handleClickedBread($event)"
+  ></buttons-list>
+  <buttons-list
+    *ngIf="subBreads"
+    [items]="subBreads"
+    (clickedItem)="handleClickedSubBread($event)"
+  ></buttons-list>
+</div>

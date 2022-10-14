@@ -1,0 +1,19 @@
+<div class="carousel-container">
+  <button class="left-button">left</button>
+  <div class="carousel">
+    <div [ngStyle]="{ transform: pathTransformExp }" class="carousel__path">
+      <div *ngFor="let image of images" class="carousel__image-container">
+        <img class="carousel__image" src="{{ image }}" alt="Dog" />
+      </div>
+    </div>
+  </div>
+  <button class="right-button">right</button>
+  <div class="nav-buttons">
+    <button
+      *ngFor="let image of images; index as i"
+      class="nav-buttons__item"
+      value="i"
+      (click)="setCurrentImage(i)"
+    ></button>
+  </div>
+</div>
