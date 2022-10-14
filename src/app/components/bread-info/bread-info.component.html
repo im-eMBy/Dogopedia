@@ -1,3 +1,12 @@
 <div class="bread-info">
   <images-carousel [images]="imageUrls"></images-carousel>
+  <p class="bread-info__title">Bread: {{ title }}</p>
+  <a
+    *ngIf="breadData"
+    class="bread-info__link"
+    [href]="link"
+    target="_blank"
+    rel="noreferrer"
+    >Learn more</a
+  >
 </div>
