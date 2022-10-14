@@ -7,7 +7,10 @@ import { BreadData } from './model/BreadData';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  currentBread: BreadData | undefined;
+  currentBread: BreadData = {
+    bread: 'mix',
+    subBread: null,
+  };
 
   handleBreadSelected(value: BreadData) {
     this.currentBread = value;

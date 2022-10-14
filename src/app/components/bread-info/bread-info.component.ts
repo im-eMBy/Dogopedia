@@ -26,16 +26,15 @@ export class BreadInfoComponent implements OnChanges, OnDestroy {
   constructor(private breadImageService: BreadImagesService) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['breadData']) {
-      if (!this.breadData) return;
+    if (!changes['breadData'] || !this.breadData) return;
 
-      this.subscription = this.breadImageService
-        .getBreadImages(this.breadData)
-        .subscribe((data: ImagesResponse) => {
-          this.imageUrls = data.message;
-        });
-    }
+    this.subscription = this.breadImageService
+      .getBreadImages(this.breadData)
+      .subscribe((data: ImagesResponse) => {
+        this.imageUrls = data.message;
+      });
   }
+
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }

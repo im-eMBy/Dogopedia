@@ -1,7 +1,7 @@
 <ul class="list">
-  <li *ngFor="let item of items" class="list__item">
-    <button class="list__button" (click)="handleClick(item)">
-      {{ item[0].toUpperCase() + item.substring(1) }}
+  <li *ngFor="let item of items; trackBy: listItemTrackBy" class="list__item">
+    <button class="list__button" (click)="handleClick(item.value)">
+      {{ item.label[0].toUpperCase() + item.label.substring(1) }}
     </button>
   </li>
 </ul>

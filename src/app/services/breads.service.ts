@@ -1,10 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SubBreadsMap } from '../model/SubBreadsMap';
 
-interface SubBreadsMap {
-  [key: string]: string[];
-}
-interface BreadsResponse {
+export interface BreadsResponse {
   message: SubBreadsMap;
   status: string;
 }
@@ -14,24 +12,12 @@ interface BreadsResponse {
 })
 export class BreadsService {
   private URL = 'https://dog.ceo/api/breeds/list/all';
-  breads: string[] = [];
-  subbreadsMap: SubBreadsMap = {};
 
-  constructor(private http: HttpClient) {
-    this.http
-      .get<BreadsResponse>(this.URL, {
-        responseType: 'json',
-      })
-      .subscribe((data: BreadsResponse) => {
-        this.breads = Object.keys(data.message);
-        this.subbreadsMap = data.message;
-      });
-  }
+  constructor(private http: HttpClient) {}
 
-  getBreads() {
-    return this.breads;
-  }
-  getSubbreads(bread: string): string[] {
-    return this.subbreadsMap[bread];
+  getBreadsApiData() {
+    return this.http.get<BreadsResponse>(this.URL, {
+      responseType: 'json',
+    });
   }
 }

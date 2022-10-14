@@ -1,7 +1,7 @@
 <div class="breads">
   <div class="breads__list-container">
     <buttons-list
-      [items]="breadsService.getBreads()"
+      [items]="breadsList"
       (clickedItem)="handleClickedBread($event)"
     ></buttons-list>
   </div>
@@ -12,7 +12,7 @@
     >
       <buttons-list
         *ngIf="subBreads"
-        [items]="subBreads"
+        [items]="subBreadsList"
         (clickedItem)="handleClickedSubBread($event)"
       ></buttons-list>
     </div>
