@@ -2,4 +2,34 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    &__list-container {
+        height: 400px;
+        min-width: 150px;
+        max-width: 250px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        &::-webkit-scrollbar {
+            background: #a5a5a5;
+            width: 8px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #000000;
+            border-radius: 5px;
+            &:hover {
+                background: #575757;
+            }
+        }
+    }
+}
+.subbreads-wrapper {
+    visibility: hidden;
+    position: relative;
+    left: -100%;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    &--active {
+        visibility: visible;
+        left: 0;
+    }
 }

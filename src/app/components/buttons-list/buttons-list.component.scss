@@ -1,0 +1,27 @@
+.list {
+    &__button {
+        text-align: left;
+        position: relative;
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 6px;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            border-bottom: 2px solid #000000;
+        }
+        @media all and (hover: hover) {
+            &:hover::after {
+                border-color: #f5df41;
+                -webkit-transition-duration: 0.2s;
+                -o-transition-duration: 0.2s;
+                transition-duration: 0.2s;
+            }
+        }
+    }
+}
