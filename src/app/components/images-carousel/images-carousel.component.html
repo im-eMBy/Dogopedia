@@ -1,18 +1,30 @@
 <div *ngIf="images[0]" class="carousel-container">
-  <button class="left-button">left</button>
-  <div class="carousel">
-    <div [ngStyle]="{ transform: pathTransformExp }" class="carousel__path">
-      <div *ngFor="let image of images" class="carousel__image-container">
-        <img class="carousel__image" src="{{ image }}" alt="Dog" />
+  <div class="carousel-container__top">
+    <button
+      class="carousel-container__button"
+      (click)="handleLeftButtonClick()"
+    >
+      &#8249;
+    </button>
+    <div class="carousel">
+      <div [ngStyle]="{ transform: pathTransformExp }" class="carousel__path">
+        <div *ngFor="let image of images" class="carousel__image-container">
+          <img class="carousel__image" src="{{ image }}" alt="Dog" />
+        </div>
       </div>
     </div>
+    <button
+      class="carousel-container__button"
+      (click)="handleRightButtonClick()"
+    >
+      &#8250;
+    </button>
   </div>
-  <button class="right-button">right</button>
   <div class="nav-buttons">
     <button
       *ngFor="let image of images; index as i"
       class="nav-buttons__item"
-      value="i"
+      [ngClass]="{ 'nav-buttons__item--active': i === currentImage }"
       (click)="setCurrentImage(i)"
     ></button>
   </div>
