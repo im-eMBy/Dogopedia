@@ -1,3 +1,8 @@
+.carousel-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
 .carousel {
     width: 400px;
     overflow: hidden;

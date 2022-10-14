@@ -1,4 +1,4 @@
-<div class="carousel-container">
+<div *ngIf="images[0]" class="carousel-container">
   <button class="left-button">left</button>
   <div class="carousel">
     <div [ngStyle]="{ transform: pathTransformExp }" class="carousel__path">
