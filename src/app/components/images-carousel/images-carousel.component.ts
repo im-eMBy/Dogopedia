@@ -48,6 +48,6 @@ export class ImagesCarouselComponent implements OnChanges {
   }
 
   handleResize() {
-    this.setCurrentImage(0);
+    this.setCurrentImage(this.currentImage);
   }
 }
